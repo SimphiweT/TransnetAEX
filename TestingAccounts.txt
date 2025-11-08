@@ -1,0 +1,18 @@
+
+********************* Admin **********************
+UsernameDisplay : Kovsie@Admin
+Email 		: 2016401495@ufs4life.ac.za
+Password 	:                          DEFAULT:Admin@1234
+************************************************
+
+********************* Staff **********************
+UsernameDisplay : Staff@User
+Email 		: simphiweterrence@yahoo.com
+Password 	: Staff@123456       	   DEFAULT:Staff@1234
+***************************************************
+
+********************* Agent **********************
+UsernameDisplay : Agent@User
+Email 		: simphiweterrencenxumalo@gmail.com
+Password 	: Password@1234		   DEFAULT:Agent@1234
+**************************************************

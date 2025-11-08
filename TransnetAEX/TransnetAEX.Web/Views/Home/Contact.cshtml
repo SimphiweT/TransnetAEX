@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Contact HR Support";
+}
+
+<section class="contact-section container">
+    <div class="contact-left">
+        <h1>Contact <span>HR Support</span></h1>
+        <p>Need assistance with your exit review or system access? Get in touch with the Transnet HR team below.</p>
+
+        <div class="contact-cards">
+            <div class="contact-card glass-card">
+                <i class="ri-mail-line icon"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>hrsupport@transnet.net</p>
+                    <p>exitreviews@transnet.net</p>
+                </div>
+            </div>
+
+            <div class="contact-card glass-card">
+                <i class="ri-phone-line icon"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+27 11 308 2000</p>
+                    <p>+27 11 308 3000</p>
+                </div>
+            </div>
+
+            <div class="contact-card glass-card">
+                <i class="ri-map-pin-line icon"></i>
+                <div>
+                    <h4>Head Office</h4>
+                    <p>Transnet Freight Rail, 150 Commissioner Street, Johannesburg, 2001</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-right glass-card">
+        <h2><i class="ri-send-plane-line"></i> Send a Message</h2>
+
+        <form asp-action="Contact" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="input_box">
+                <input type="text" name="name" class="input_field" required />
+                <label class="label">Your Name</label>
+                <i class="ri-user-line"></i>
+            </div>
+
+            <div class="input_box">
+                <input type="email" name="email" class="input_field" required />
+                <label class="label">Email Address</label>
+                <i class="ri-mail-line"></i>
+            </div>
+
+            <div class="input_box">
+                <textarea name="message" class="input_field" rows="5" required></textarea>
+                <label class="label">Your Message</label>
+                <i class="ri-chat-1-line"></i>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="ri-send-plane-line"></i> Send Message
+            </button>
+        </form>
+
+        <div id="lottie-contact" class="contact-animation"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© @DateTime.Now.Year Transnet SOC Ltd | Automated Exit Reviews System (AEX)</p>
+</footer>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            UIHelper.showAnimation("Contact", "lottie-contact", true);
+            ScrollReveal().reveal(".contact-left h1, .contact-right", {
+                distance: "60px",
+                origin: "bottom",
+                duration: 1000
+            });
+        });
+    </script>
+}

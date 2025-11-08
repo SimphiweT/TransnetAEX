@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<main class="about-container">
+    <div class="about-left">
+        <div class="about-visual">
+            <img src="~/images/logos/128px-South_Africa_Transnet.png" alt="Transnet Logo" class="about-img" />
+            <div id="lottie-about" class="about-lottie"></div>
+        </div>
+    </div>
+
+    <div class="about-right glass-card">
+        <h1><i class="ri-information-line"></i> About <span>Transnet Exit Reviews</span></h1>
+        <p class="intro">
+            The <strong>Transnet Automated Exit Reviews System (AEX)</strong> streamlines and digitizes the
+            employee exit process — ensuring that all reviews, approvals, and documentations are completed
+            efficiently, securely, and consistently across departments.
+        </p>
+
+        <p class="intro">
+            This system replaces the manual paper-based method with a centralized platform where
+            HR, Line Managers, and Exiting Employees can review and sign electronically.
+        </p>
+
+        <div class="about-cards">
+            <div class="about-card">
+                <i class="ri-secure-payment-line"></i>
+                <div><h4>Secure Access</h4><p>All reviews are authenticated and role-based.</p></div>
+            </div>
+            <div class="about-card">
+                <i class="ri-database-2-line"></i>
+                <div><h4>Centralized Records</h4><p>All exit reviews and approvals are digitally stored.</p></div>
+            </div>
+            <div class="about-card">
+                <i class="ri-user-settings-line"></i>
+                <div><h4>Efficiency</h4><p>Minimizes delays and improves reporting accuracy.</p></div>
+            </div>
+            <div class="about-card">
+                <i class="ri-pie-chart-2-line"></i>
+                <div><h4>Analytics</h4><p>HR can track exit trends, reasons, and department stats.</p></div>
+            </div>
+        </div>
+
+        <div class="about-footer">
+            <a href="@Url.Action("Contact", "Home")" class="btn-primary">
+                <i class="ri-mail-send-line"></i> Contact HR Support
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© @DateTime.Now.Year Transnet SOC Ltd | Automated Exit Reviews System (AEX)</p>
+</footer>

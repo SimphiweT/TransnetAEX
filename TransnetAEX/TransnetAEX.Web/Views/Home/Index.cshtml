@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+    <!-- ===== HERO SECTION ===== -->
+    <div class="container">
+        <div class="container_left">
+            <div class="content">
+                <div class="slides">
+                    <!-- Slide 1 -->
+                    <div class="slide active">
+                        <h1>DIGITAL <span>EXIT REVIEWS</span></h1>
+                        <p>
+                            Transnet AEX automates the employee exit review process — ensuring smooth
+                            handovers, accountability, and transparent communication between HR,
+                            Line Managers, and Employees.
+                        </p>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <h1>EFFICIENCY & <span>COMPLIANCE</span></h1>
+                        <p>
+                            Eliminate manual paperwork and gain full visibility into exit workflows.
+                            Review submissions, approvals, and reports — all in one secure platform.
+                        </p>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <h1>SMART <span>INSIGHTS</span></h1>
+                        <p>
+                            HR teams can analyze exit data and identify key trends to improve retention
+                            and workplace satisfaction across the organization.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="chevrons">
+                    <span class="chev_left"><i class="ri-arrow-left-s-line"></i></span>
+                    <span class="chev_right"><i class="ri-arrow-right-s-line"></i></span>
+                </div>
+
+                <div class="bottom_tracker">
+                    <span class="tracker active"></span>
+                    <span class="tracker"></span>
+                    <span class="tracker"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_right">
+            <div id="lottie-welcome" class="lottie_welcome_animation"></div>
+        </div>
+    </div>
+
+    <!-- ===== REVIEW STATUS CARD ===== -->
+    <section id="review-status" class="download-card" data-sr="fade-up">
+        <div class="download-info">
+            <h2>Check Your <span>Exit Review</span> Status</h2>
+            <p>
+                Enter your unique <strong>Review ID</strong> to view the progress of your exit review
+                and see which departments have signed off.
+            </p>
+
+            <form method="get" asp-controller="Review" asp-action="ViewReview" class="review-form">
+                <div class="input-group mb-3">
+                    <input type="text" name="reviewId" class="form-control" placeholder="Enter your Review ID" required />
+                    <button type="submit" class="btn btn-success">
+                        <i class="ri-search-line"></i> View Review
+                    </button>
+                </div>
+            </form>
+
+            <small class="version-text">
+                Secure access is limited to authorized employees and HR staff.
+            </small>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© @DateTime.Now.Year Transnet SOC Ltd | Automated Exit Reviews System (AEX)</p>
+    <div class="footer-links">
+        <a href="https://www.transnet.net" target="_blank">Transnet Official Site</a>
+        <a href="http://localhost:5038/swagger/index.html" target="_blank">API Docs</a>
+    </div>
+</footer>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            ScrollReveal().reveal(".content h1, .content p, .chevrons, .bottom_tracker, .download-card", {
+                distance: "50px",
+                origin: "bottom",
+                duration: 1000,
+                interval: 150,
+            });
+        });
+    </script>
+}

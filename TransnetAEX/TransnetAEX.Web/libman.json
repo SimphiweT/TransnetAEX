@@ -1,0 +1,26 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "sweetalert2@11.23.0",
+      "destination": "wwwroot/lib/sweetalert2/"
+    },
+    {
+      "library": "bootstrap@5.3.8",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "remixicon@4.6.0",
+      "destination": "wwwroot/lib/remixicon/"
+    },
+    {
+      "library": "lottie-web@5.13.0",
+      "destination": "wwwroot/lib/lottie-web/"
+    },
+    {
+      "library": "apexcharts@5.3.5",
+      "destination": "wwwroot/lib/apexcharts/"
+    }
+  ]
+}

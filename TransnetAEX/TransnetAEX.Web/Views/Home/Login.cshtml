@@ -1,0 +1,91 @@
+﻿@model TransnetAEX.Web.Models.Auth.LoginRequestViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<main class="login-container">
+    <!-- ===== LEFT: LOTTIE ANIMATION ===== -->
+    <div class="login-left">
+        <div id="lottie-login" class="lottie-login-animation"></div>
+        <h2>Welcome Back!</h2>
+        <p>
+            Access your <strong>Transnet AEX System</strong> account to review, manage, and approve exit interviews securely.
+        </p>
+    </div>
+
+    <!-- ===== RIGHT: LOGIN FORM ===== -->
+    <div class="login-right glass-card">
+        <div class="login-header">
+            <h2><i class="ri-shield-user-line"></i> Sign In</h2>
+            <p>Login using your Transnet AEX credentials.</p>
+        </div>
+
+        <form method="post" asp-controller="Home" asp-action="Login" class="login-form">
+            @Html.AntiForgeryToken()
+
+            <div class="input-box">
+                <label>Email</label>
+                <div class="input-field">
+                    <i class="ri-mail-line"></i>
+                    <input type="email" name="Email" required placeholder="Enter your email" />
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <div class="input-field">
+                    <i class="ri-lock-line"></i>
+                    <input type="password" id="password" name="Password" required placeholder="Enter password" />
+                    <i id="togglePassword" class="ri-eye-line toggle-password"></i>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="RememberMe" /> Remember me
+                </label>
+                <a href="@Url.Action("ForgotPassword", "Home")">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="ri-login-box-line"></i> Login
+            </button>
+
+            <p class="register-link">
+                Don’t have an account? <a href="@Url.Action("RequestAccess", "Home")">Request Access</a>
+            </p>
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2025 Transnet SOC Ltd | Automated Exit Reviews System (AEX)</p>
+</footer>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Password toggle
+            const togglePassword = document.getElementById("togglePassword");
+            const password = document.getElementById("password");
+            if (togglePassword && password) {
+                togglePassword.addEventListener("click", function () {
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
+                    this.classList.toggle("ri-eye-off-line");
+                });
+            }
+
+            // Lottie animation
+            UIHelper.showAnimation("Login", "lottie-login", true);
+
+            // Reveal animation
+            ScrollReveal().reveal(".login-left, .login-right", {
+                distance: "50px",
+                origin: "bottom",
+                duration: 1000,
+                interval: 150
+            });
+        });
+    </script>
+}

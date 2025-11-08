@@ -1,0 +1,61 @@
+﻿@model TransnetAEX.Web.Models.Reviews.ReviewViewModel
+@{
+    ViewBag.Title = "Exit Review Details";
+}
+
+<section class="review-section container">
+    <h1><i class="ri-file-list-3-line"></i> Exit Review Summary</h1>
+
+    <div class="review-info glass-card">
+        <p><strong>Review ID:</strong> @Model.ReviewId</p>
+        <p><strong>Employee:</strong> @Model.EmployeeName</p>
+        <p><strong>Department:</strong> @Model.Department</p>
+        <p>
+            <strong>Status:</strong>
+            <span class="badge bg-@(Model.Status == "Completed" ? "success" : "warning")">
+                @Model.Status
+            </span>
+        </p>
+        <p><strong>Submitted On:</strong> @Model.SubmittedDate.ToString("dd MMM yyyy HH:mm")</p>
+    </div>
+
+    <div class="review-stages glass-card mt-4">
+        <h3><i class="ri-todo-line"></i> Review Progress</h3>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Reviewer</th>
+                    <th>Status</th>
+                    <th>Signed Date</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stage in Model.Stages)
+                {
+                    <tr>
+                        <td>@stage.StepName</td>
+                        <td>@stage.Reviewer</td>
+                        <td>
+                            @if (stage.IsSignedOff)
+                            {
+                                <span class="badge bg-success">Signed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Pending</span>
+                            }
+                        </td>
+                        <td>@(stage.SignedDate?.ToString("dd MMM yyyy") ?? "-")</td>
+                        <td>@stage.Comments</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© @DateTime.Now.Year Transnet SOC Ltd | Automated Exit Reviews System</p>
+</footer>

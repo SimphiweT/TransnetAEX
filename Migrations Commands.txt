@@ -1,0 +1,16 @@
+Add-Migration initial_migration -StartupProject TransnetAEX.Api -Project TransnetAEX.Infrastructure
+
+Update-Database -StartupProject TransnetAEX.Api -Project TransnetAEX.Infrastructure
+
+Drop-Database -StartupProject TransnetAEX.Api -Project TransnetAEX.Infrastructure 
+
+Remove-Migration -Project TransnetAEX.Infrastructure
+
+
+
+
+*******************************************************************************************************************************
+
+
+*******************************************************************************************************************************
+
